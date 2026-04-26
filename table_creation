@@ -1,0 +1,111 @@
+
+-- command to display databases
+
+show databases;
+
+-- command to create database
+
+Create database database_name;
+
+-- login into database
+
+use database_name;
+
+-- 1. Creating the flm_users table
+
+CREATE TABLE flm_users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    dob VARCHAR(255) NOT NULL,
+    salt VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    failedcountattempts INT NOT NULL DEFAULT 0,
+    lastlogin_date DATE
+);
+
+-- 2. Creating the flm_accounts table
+
+CREATE TABLE flm_accounts (
+    account_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    account_number VARCHAR(255) NOT NULL,
+    balance DECIMAL(20,2) NOT NULL,
+    is_active BOOLEAN NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES flm_users(user_id)
+);
+
+-- 3. Creating the flm_transactions table
+
+CREATE TABLE flm_transactions (
+    trans_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    account_id INT,
+    amount DECIMAL(20,2) NOT NULL,
+    from_account VARCHAR(255) NOT NULL,
+    to_account VARCHAR(255) NOT NULL,
+    trans_date DATE NOT NULL,
+    trans_type ENUM('db', 'cd') NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES flm_users(user_id),
+    FOREIGN KEY (account_id) REFERENCES flm_accounts(account_id)
+);
+
+
+
+class data:
+
+fb:
+
+asdfG@tcssp4567
+7217754b8775fc8936dd5e20a3538f610850fca286ed4d9b1bff841eb1b89040
+
+- salt size 
+- 8 
+- 
+tcssp
+
+c6af65e8194bf51bf80d52e840b473205f1c598573ec82833543ff66e7dd6924
+
+
+
+
+qwetyfgherty@123456 - tyfgh
+tyu7ytr5iop(rt67 - 7ytr5
+asd89i7&fg@4567 - 89i7&
+
+
+
+
+asdfgh
+
+890
+
+
+890asdfgh
+ishgfugfhcfgbcdkjcbdskljc
+
+
+
+asdfgh 
+uefyiuwegcbdscdjkdbivwyhe
+
+
+890asdfgh
+ishgfugfhcfgbcdkjcbdskljc
+
+
+
+a - 1
+bal: 100
+
+2
+
+ta: 10
+
+a bal: 90
+
+b - 2
+bal: 10
+
+b bal : 20 
